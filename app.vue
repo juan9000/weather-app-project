@@ -1,12 +1,13 @@
 <template>
   <div>
-    {{ favoriteStore.getState.testValue }}
+    {{ response }}
   </div>
 </template>
 
 <script setup lang="ts">
-import { useFavoriteStore } from './store';
+import useApi from './composables/useApi';
 
-const favoriteStore = useFavoriteStore();
-
+const response = await useApi().getSearch({
+  q: 'Jataizinho'
+});
 </script>
