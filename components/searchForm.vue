@@ -40,8 +40,8 @@ import type { PartialLocation } from '~/types/api/api.interface';
 
 const locations: Ref<PartialLocation[]> = ref([]);
 const interval: Ref<ReturnType<typeof setTimeout> | number | null> = ref(null);
-const inputText: Ref<string> = ref('');
-const selectedLocationId: Ref<number | null> = ref(null);
+const inputText: Ref<string | undefined> = ref('');
+const selectedLocationId: Ref<string | number | null> = ref(null);
 const showLocationList: Ref<boolean> = ref(false);
 const loading = reactive({
   list: false,
@@ -135,7 +135,7 @@ const getGeolocation = () => {
   .search-bar-input-container {
     display: flex;
     align-items: center;
-    border-radius: 6px;
+    border-radius: $border-radius;
     background-color: $color-white;
     border: 1px solid $color-black;
     padding: 6px;
@@ -169,7 +169,7 @@ const getGeolocation = () => {
   }
 
   .search-bar-list-container {
-    border-radius: 6px;
+    border-radius: $border-radius;
     background-color: $color-white;
     border: 1px solid $color-black;
     padding: 16px 0px 6px 0px;

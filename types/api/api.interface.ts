@@ -4,13 +4,13 @@ export interface SearchQuery {
 
 export interface PartialLocation {
   country: string;
-  id: number;
+  id: number | string;
   lat: number;
   lon: number;
   name: string;
   region: string;
-  url: string;
-  fullName: string;
+  url?: string;
+  fullName?: string;
 }
 
 export interface WeatherCondition {

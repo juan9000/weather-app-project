@@ -1,3 +1,5 @@
+import type { PartialLocation } from "../api/api.interface";
+
 export interface FavoriteStoreState {
-  testValue: string;
+  favoriteLocations: PartialLocation[];
 }

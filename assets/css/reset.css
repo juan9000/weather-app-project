@@ -130,3 +130,11 @@ select[multiple]
 	/* Move the label to the top */
 	vertical-align:top;
 }
+
+/* P
+-----------------------------------------------*/
+
+p {
+	margin-block-start: 0;
+	margin-block-end: 0;
+}
