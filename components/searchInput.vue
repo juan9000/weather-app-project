@@ -49,8 +49,8 @@ const loading = reactive({
 
 const searchLocations = async (value: string, geolocationRequest: boolean = false): Promise<void> => {
   try {
-    const response = await useApi().getSearchList({ q: value });
-    locations.value = response.map((location: PartialLocation) => {
+    const response: PartialLocation[] = await useApi().getSearchList({ q: value });
+    locations.value = response.map((location) => {
       location.fullName = `${location.name}, ${location.region}, ${location.region}`;
       return location;
     })
