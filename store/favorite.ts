@@ -9,13 +9,13 @@ export default defineStore('favoriteStore', () => {
   })
 
   // Getters
-  const getAllFavorites = computed(() => {
+  const getAllFavorites = computed((): PartialLocation[] => {
     return state.value.favoriteLocations;
   });
 
   // Actions 
   const setFavoriteLocation = (location: PartialLocation) => {
-    const favoriteLocationIndex = state.value.favoriteLocations.findIndex((favoriteLocation) => favoriteLocation.id === location.id);
+    const favoriteLocationIndex = state.value.favoriteLocations.findIndex((favoriteLocation) => favoriteLocation.id === location.id );
 
     if (favoriteLocationIndex >= 0) {
       state.value.favoriteLocations.splice(favoriteLocationIndex, 1);

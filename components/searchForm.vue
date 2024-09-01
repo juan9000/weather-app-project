@@ -4,7 +4,7 @@
       <input
         v-model="inputText"
         type="text"
-        placeholder="Search by location"
+        placeholder="Search location"
         @input="inputTextInterval()"
         @keypress.enter="navigateToLocation"
       />
@@ -40,8 +40,8 @@ import type { PartialLocation } from '~/types/api/api.interface';
 
 const locations: Ref<PartialLocation[]> = ref([]);
 const interval: Ref<ReturnType<typeof setTimeout> | number | null> = ref(null);
-const inputText: Ref<string | undefined> = ref('');
-const selectedLocationId: Ref<string | number | null> = ref(null);
+const inputText: Ref<string> = ref('');
+const selectedLocationId: Ref<number | null> = ref(null);
 const showLocationList: Ref<boolean> = ref(false);
 const loading = reactive({
   list: false,
@@ -68,8 +68,8 @@ const searchLocations = async (value: string, geolocationRequest: boolean = fals
 }
 
 const setLocation = (location: PartialLocation, navigation: boolean = true) => {
-  inputText.value = location.fullName;
-  selectedLocationId.value = location.id;
+  inputText.value = location.fullName as string;
+  selectedLocationId.value = location.id as number;
   
   if (navigation) {
     navigateToLocation();
@@ -132,6 +132,8 @@ const getGeolocation = () => {
 
 <style scoped lang="scss">
 .search-bar-container {
+  position: relative;
+  
   .search-bar-input-container {
     display: flex;
     align-items: center;
@@ -174,7 +176,8 @@ const getGeolocation = () => {
     border: 1px solid $color-black;
     padding: 16px 0px 6px 0px;
     margin-top: -10px;
-    position: relative;
+    position: absolute;
+    width: 100%;
     z-index: 0;
     color: $color-black;
 

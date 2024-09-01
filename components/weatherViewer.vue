@@ -28,7 +28,7 @@ const config = useRuntimeConfig();
 const route = useRoute();
 const favoriteStore = useFavoriteStore();
 
-const currentLocation = computed((): string => {
+const currentLocationParam = computed((): string => {
   const location = route.params.location as string;
   if (+location) {
     return `id:${location}`;
@@ -41,20 +41,24 @@ const currentLocation = computed((): string => {
   return location;
 });
 
+const currentLocationId = computed((): string => {
+  return route.params.location as string;
+});
+
 const { data: weatherInformations }: { data: Ref<CurrentLocation> } = await useFetch(`${config.public.baseUrl}/forecast.json `,
   {
     key: `forecast-${route.params.location}`,
     query: {
       key: config.public.apiKey,
-      q: currentLocation,
+      q: currentLocationParam,
       days: 4,
     },
   },
 );
 
 const favoritedLocation = computed((): boolean => {
-  if (favoriteStore.getAllFavorites.length && currentLocation.value) {
-    return !!favoriteStore.getAllFavorites.find((location: PartialLocation) => location.id === currentLocation.value);
+  if (favoriteStore.getAllFavorites.length && currentLocationId.value) {
+    return !!favoriteStore.getAllFavorites.find((location: PartialLocation) => location.id === currentLocationId.value);
   }
 
   return false;
@@ -62,7 +66,7 @@ const favoritedLocation = computed((): boolean => {
 
 
 const favoriteLocation = (): void => {
-  favoriteStore.setFavoriteLocation({...weatherInformations.value.location, id: currentLocation.value});
+  favoriteStore.setFavoriteLocation({...weatherInformations.value.location, id: currentLocationId.value});
 };
 </script>
 
@@ -78,7 +82,7 @@ const favoriteLocation = (): void => {
       cursor: pointer;
       right: 0;
       position: absolute;
-      padding: 8px 6px;
+      padding: $button-padding;
       border-radius: $border-radius;
       border: 1px solid $color-pink;
       font-weight: 600;
