@@ -1,5 +1,3 @@
 <template>
-  <div>
-    location
-  </div>
+  <WeatherViewer />
 </template>

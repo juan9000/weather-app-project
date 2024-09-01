@@ -4,6 +4,7 @@ body {
   margin: 0;
   background: linear-gradient(0deg, $body-color-gradient-start 0%, $body-color-gradient-middle 25%, $body-color-gradient-end 100%);
   background-repeat: no-repeat;
+  background-attachment: fixed;
 
   #__nuxt {
     height: 100vh;
