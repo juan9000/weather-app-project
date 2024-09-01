@@ -41,6 +41,7 @@ import type { PartialLocation } from '~/types/api/api.interface';
 const locations: Ref<PartialLocation[]> = ref([]);
 const interval: Ref<ReturnType<typeof setTimeout> | number | null> = ref(null);
 const inputText: Ref<string> = ref('');
+const selectedLocationId: Ref<number | null> = ref(null);
 const showLocationList: Ref<boolean> = ref(false);
 const loading = reactive({
   list: false,
@@ -53,11 +54,10 @@ const searchLocations = async (value: string, geolocationRequest: boolean = fals
     locations.value = response.map((location) => {
       location.fullName = `${location.name}, ${location.region}, ${location.region}`;
       return location;
-    })
+    });
 
     if (geolocationRequest && locations.value.length === 1) {
-      const geolocation = locations.value[0];
-      inputText.value = geolocation.fullName;
+      setLocation(locations.value[0], false);
     } else {
       showLocationList.value = true;
     }
@@ -67,19 +67,26 @@ const searchLocations = async (value: string, geolocationRequest: boolean = fals
   }
 }
 
-const setLocation = (location: PartialLocation) => {
+const setLocation = (location: PartialLocation, navigation: boolean = true) => {
   inputText.value = location.fullName;
-  navigateToLocation();
+  selectedLocationId.value = location.id;
+  
+  if (navigation) {
+    navigateToLocation();
+  }
 }
 
 const navigateToLocation = (): void => {
-  if (inputText.value.length >= 3) {
+  if (selectedLocationId.value) {
+    navigateTo(`/${selectedLocationId.value}`);
+  } else if (inputText.value.length >= 3) {
     navigateTo(`/${inputText.value.replaceAll(', ', '_').replaceAll(' ', '-')}`);
   }
 }
 
 const inputTextInterval = (): void => {
   const intervalTime: number = 750 // 0.75 seconds in miliseconds 
+  selectedLocationId.value = null;
 
   clearInterval(interval.value as number);
 
