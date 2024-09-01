@@ -1,5 +1,3 @@
 <template>
-  <div class="search-input-container">
-    <SearchInput />
-  </div>
+  <SearchForm />
 </template>
