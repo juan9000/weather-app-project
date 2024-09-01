@@ -9,4 +9,17 @@ export default defineNuxtConfig({
       apiKey: process.env.API_KEY,
     },
   },
+  css: [
+    '~/assets/css/reset.css',
+    '~/assets/scss/main.scss',
+  ],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "~/assets/scss/variables.scss";',
+        },
+      },
+    },
+  },
 })
