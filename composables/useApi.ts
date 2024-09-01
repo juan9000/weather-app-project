@@ -4,8 +4,8 @@ export default function useApi()  {
   const config = useRuntimeConfig();
 
   return {
-    getSearchList: async (query: SearchQuery): Promise<any> => {
-      const data = await $fetch(`${config.public.baseUrl}/search.json`,
+    getSearchList: async (query: SearchQuery): Promise<PartialLocation[]> => {
+      const data: PartialLocation[] = await $fetch(`${config.public.baseUrl}/search.json`,
         {
           key: `locations-${query.q}`,
           query: {
