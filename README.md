@@ -4,20 +4,16 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 
 ## Setup
 
+Make sure to have yarn installed:
+```bash
+npm install --global yarn
+```
+
 Make sure to install the dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
 # yarn
 yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
@@ -25,17 +21,8 @@ bun install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
 # yarn
 yarn dev
-
-# bun
-bun run dev
 ```
 
 ## Production
@@ -43,38 +30,29 @@ bun run dev
 Build the application for production:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
 # yarn
 yarn build
-
-# bun
-bun run build
 ```
 
 Locally preview production build:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
 # yarn
 yarn preview
-
-# bun
-bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
 
-// API
-TO DO
-https://www.weatherapi.com/
+# API Setup
+
+The appplication is using the free trial of "weatherapi"
+You can find informations at https://www.weatherapi.com/
+
+# Create a .env File
+To run the project you will need to create a ".env" file with the following values:
+
+```bash
+API_KEY={Get the free trial at https://www.weatherapi.com/}
+BASE_URL=http://api.weatherapi.com/v1
+```
