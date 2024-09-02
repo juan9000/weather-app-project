@@ -267,13 +267,6 @@ const favoriteLocation = (): void => {
           width: 33%;
           text-align: center;
           align-content: center;
-        
-          .weather-viewer-detailed-content {
-            font-weight: 600;
-          }
-          .weather-viewer-detailed-text {
-            margin-top: 0.15rem;
-          }
         }
       }
     }
@@ -284,7 +277,7 @@ const favoriteLocation = (): void => {
     width: 100%;
     max-width: 590px;
     .weather-viewer-today-weather-title {
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.75rem;
     }
     .weather-viewer-today-weather-list {
       display: flex;
@@ -296,7 +289,7 @@ const favoriteLocation = (): void => {
   .weather-viewer-next-days {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 0.75rem;
+    margin-top: 1rem;
     width: 100%;
     max-width: 590px;
     gap: 0.75rem;

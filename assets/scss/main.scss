@@ -5,6 +5,11 @@ body {
   background: linear-gradient(0deg, $body-color-gradient-start 0%, $body-color-gradient-middle 25%, $body-color-gradient-end 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  font-family: 'Noto Sans';
+
+  p {
+    font-family: 'Noto Sans';
+  }
 
   #__nuxt {
     height: 100vh;

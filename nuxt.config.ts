@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
+    '@nuxtjs/google-fonts',
   ],
   runtimeConfig: {
     public: {
@@ -25,4 +26,9 @@ export default defineNuxtConfig({
       },
     },
   },
+  googleFonts: {
+    families: {
+      'Noto+Sans': true,
+    }
+  }
 })
