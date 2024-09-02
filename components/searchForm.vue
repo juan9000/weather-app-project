@@ -57,7 +57,7 @@ const searchLocations = async (value: string, geolocationRequest: boolean = fals
     });
 
     if (geolocationRequest && locations.value.length === 1) {
-      setLocation(locations.value[0], false);
+      setLocation(locations.value[0]);
     } else {
       showLocationList.value = true;
     }
@@ -67,13 +67,11 @@ const searchLocations = async (value: string, geolocationRequest: boolean = fals
   }
 }
 
-const setLocation = (location: PartialLocation, navigation: boolean = true) => {
+const setLocation = (location: PartialLocation) => {
   inputText.value = location.fullName as string;
   selectedLocationId.value = location.id as number;
-  
-  if (navigation) {
-    navigateToLocation();
-  }
+
+  navigateToLocation();
 }
 
 const navigateToLocation = (): void => {

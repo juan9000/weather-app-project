@@ -22,25 +22,35 @@ import { useFavoriteStore } from '~/store';
 const favoriteStore = useFavoriteStore();
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .city-list-container {
   margin-top: 2rem;
   text-align: center;
+  color: $text-color-white;
 
   .city-list {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 28px;
+    gap: 6px;
   }
 
   .city-list-item {
     cursor: pointer;
     font-size: 1.25rem;
-    background-color: #cbe7ff;
+    background-color: rgb(8 9 35 / 22%);
     border-radius: $border-radius;
     padding: $button-padding;
+    color: $text-color-white;
   }
 }
 
+
+@media only screen and (min-width: 768px) {
+  .city-list-container {
+    .city-list {
+      gap: 28px;
+    }
+  }
+}
 </style>
