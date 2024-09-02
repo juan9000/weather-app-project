@@ -24,8 +24,13 @@ export default defineStore('favoriteStore', () => {
     }
   }
 
+  
+
   return {
     getAllFavorites,
     setFavoriteLocation,
   }
-})
+},
+{
+  persist: true,
+});
