@@ -207,6 +207,7 @@ const favoriteLocation = (): void => {
         gap: 6px;
         cursor: pointer;
         right: 0;
+        top: 0;
         padding: $button-padding;
         border-radius: $border-radius;
         width: min-content;
