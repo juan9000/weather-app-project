@@ -53,6 +53,6 @@ You can find informations at https://www.weatherapi.com/
 To run the project you will need to create a ".env" file with the following values:
 
 ```bash
-API_KEY={Get the free trial at https://www.weatherapi.com/}
-BASE_URL=http://api.weatherapi.com/v1
+API_KEY='Get the free trial at https://www.weatherapi.com/'
+BASE_URL=https://api.weatherapi.com/v1
 ```
